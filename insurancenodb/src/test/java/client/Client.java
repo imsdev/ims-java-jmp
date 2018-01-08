@@ -18,14 +18,14 @@ import com.ibm.ims.dli.conversion.util.ConversionUtils;
 
 public class Client {
 
-	String host, datastore, tranName, racfId, racfGroupName, clientId;
+	String host, dataStore, tranName, racfId, racfGroupName, clientId;
 	int port;
 	private static final String CODEPAGE = "cp037";
 	static Vector<byte[]> byteArray = new Vector<byte[]>();
 
 	public static void main(String[] args) throws Exception {
 
-		Client client = new Client("INSUR01 ", "9.30.132.181", "IMDO", 8890, "PAUL", "SYS1", "CLIENX1");
+		Client client = new Client("INSUR01 ", "n.nn.nnn.nnn", "dataStore", 8890, "racfId", "racfGroupName", "clientId");
 
 		//create input message		
 		//ACTION
@@ -71,19 +71,19 @@ public class Client {
 	 * 
 	 * @param tranName 8 character transaction name
 	 * @param host the IP address of the z/OS system
-	 * @param datastore the IMS datastore name
+	 * @param dataStore the IMS data store name
 	 * @param port the IMS Connect port
 	 * @param racfId 8 character RACFID
 	 * @param racfGroupName 8 character RACF GROUP ID
 	 * @param clientId 8 character IMS Connect client ID
 	 */
 
-	public Client(String tranName, String host, String datastore, int port, String racfId, String racfGroupName, String clientId) {
+	public Client(String tranName, String host, String dataStore, int port, String racfId, String racfGroupName, String clientId) {
 
 		this.tranName=tranName;
 		this.host=host;
 		this.port=port;
-		this.datastore=datastore;
+		this.dataStore=dataStore;
 		this.racfId=racfId;
 		this.racfGroupName=racfGroupName;
 		this.clientId=clientId;
@@ -109,7 +109,7 @@ public class Client {
 
 		//trancode with length 8
 		myTmInteraction.setTrancode(tranName);
-		myTmInteraction.setImsDatastoreName(datastore);
+		myTmInteraction.setImsDatastoreName(dataStore);
 		myTmInteraction.setRacfUserId(racfId);
 		myTmInteraction.setRacfGroupName(racfGroupName);
 
