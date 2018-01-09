@@ -4,16 +4,18 @@ This sample Java application runs in the IMS Java Message Processing (JMP) regio
 
 After the application is deployed to the IMS environment, a sample client application is provided that sends the input message to the transaction and displays the output message.
 
+Two copies of the sample are provided. The versionin the `insurance/` directory requires a sample database so additional setup steps are required. The version in the `insurancenodb/` directory does not require a database, with some customer data hard-coded in the sample.
+
 ## Scenario
-The JMP application will retrieve insurance policies information based on the customer number that is specified by the client application. For simplicity, the insurance policies information is coded in the sample so there is no need for any database setup.
+A user wants to retrieve the insurance policies information for a specified customer number. The JMP application will retrieve insurance policies information based on the customer number that is specified by the client application. 
 
 ## Repository structure
-The files in the `src/` directory has the following structure:
+For both versions of the sample, the files in the `src/` directory has the following structure:
 
 * `main/`
   * `java/`: The sample Java application. See the Sample overview section for more information.
   * `resources/`: Contains .jar files for APIs that are used in this sample, including:
-     * IMS Connect API for Java: Used by the client application to access IMS Connect 
+     * IMS Connect API for Java: Used by the client application to access IMS Connect.
      * IMS universal drivers: Used by the JMP application for making DL/I calls.
 * `test/`
   * `java/client/`: The client application that specifies the customer number for whom to retrieve insurance policies information. The client application uses the IMS Connect API to connect to IMS. 
@@ -29,7 +31,9 @@ Sample application code is available in the src/main/java directory.
 * `controller/`: The main Java application
 * `customer/info`: 
   * `Customer.java`: Provides methods for retrieving customer information 
-  * `CustomerService.java`: Contains hard-coded customer data so a database is not required for this sample.
+  * `CustomerService.java`: 
+     * For the database-version of the sample (`insurance/`): Contains SQL queries to retrieve customer info from the database.
+	 * For the no-database-version of the sample (`insurancenodb/`): Contains hard-coded customer data so a database is not required for this sample.
 
 * `message/`:  
   * `InputMessage.java`: Defines the structure of the input message that the Insurance application receives. It  defines the field name, field type, the start position, and the length of each field. It also specifies the length of the entire message in the call to the super constructor.
@@ -41,10 +45,13 @@ Sample application code is available in the src/main/java directory.
 
   
 ## Pre-requisites
+The following configuration steps might require the assistance of a system programmer.
 
-1. The IMS Universal drivers (imsudb.jar) provided through the Java On Demand Feature FMID must be installed during the SMP/E process.
+1. The IMS Universal drivers (`imsudb.jar` and `imstm.jar`) provided through the Java On Demand Feature FMID must be installed during the SMP/E process.
 2. The location for the Java Virtual Machine (JVM) and the IMS Java native code (`libT2DLI.so`) must be specified by using either the `//STDENV DD` statement in a JCL to set Java environment variables and options, or by specifying the settings in the DFSJVMEV member of the IMS PROCLIB data set to specify the settings. 
-3. The location of the .jar files for the IMS Universal drivers and the Java applications must be specified by setting Java environment variables and options in a `//STDENV DD` statement or by modifying the DFSJVMMS member in the IMS PROCLIB data set.
+For more information, see [DFSJVMEV (JVM environment settings member)](https://www.ibm.com/support/knowledgecenter/en/SSEPH2_14.1.0/com.ibm.ims14.doc.sdg/ims_dfsjvmev_proclib.htm) in IBM Knowledge Center.
+3. The location of the .jar files for the IMS Universal drivers and the Java applications must be specified by setting Java environment variables and options in a `//STDENV DD` statement or by modifying the DFSJVMMS member in the IMS PROCLIB data set. 
+For more information, see [DFSJVMMS member of the IMS PROCLIB data set](https://www.ibm.com/support/knowledgecenter/en/SSEPH2_14.1.0/com.ibm.ims14.doc.sdg/ims_dfsjvmms_proclib.htm) in IBM Knowledge Center.
 
 
 Note that for items #2 and #3, the sample z/OSMF workflow can be tailored to handle these tasks, easing the process of environment setup as well as application deployment. 
@@ -52,19 +59,19 @@ Note that for items #2 and #3, the sample z/OSMF workflow can be tailored to han
 ## Steps
 
 1. Import the IMS Universal drivers (imsudb.jar) into your project. 
-2. Ask the System Programmer to set up the environment for running Java applications in the JMP region. 
+2. Ask your system programmer to set up the environment for running Java applications in the JMP region. 
 3. Identify the z/OS UNIX System Services (USS) file system location where the application .jar file should be uploaded. The file system location is defined either in the DFSJVMMS member or in the shell script that is referenced by the `//STDENV DD` statement. Obtain the permission to upload files to the identified location. 
-4. Obtain from the System Programmer and System Administrator the following information that is required to access IMS for testing:
-  * IP address or host name
-  * Data store name
-  * Port number
-  * IMS Connect port number
-  * RACF ID
-  * RACF group name
-5. Modify the IMS Connect API for Java client application with the correct info to access IMS.
+4. Obtain from your system programmer and system administrator the following information that is required to access IMS for testing:
+   * IP address or host name
+   * Data store name
+   * Port number
+   * IMS Connect port number
+   * RACF ID
+   * RACF group name
+5. Modify the IMS Connect API for Java client application with the correct connection info to access IMS.
 6. Compile the client application.
 7. Compile the sample Java application.
-8. Export the application .jar file. Upload it to the USS file system in binary mode.
+8. Export the application .jar file and upload it to the USS file system in binary mode.
 9. Work with the system programmer to ensure that the program, the transaction, and the JMP region are started.
 10. Test the JMP program with the client application. 
 
