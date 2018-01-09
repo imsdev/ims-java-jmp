@@ -17,6 +17,7 @@ For both versions of the sample, the files in the `src/` directory has the follo
   * `resources/`: Contains .jar files for APIs that are used in this sample, including:
      * IMS Connect API for Java: Used by the client application to access IMS Connect.
      * IMS universal drivers: Used by the JMP application for making DL/I calls.
+       * The two jars included in the project are for version 14 of IMS.
 * `test/`
   * `java/client/`: The client application that specifies the customer number for whom to retrieve insurance policies information. The client application uses the IMS Connect API to connect to IMS. 
   * `resources/workflow/`: A z/OSMF workflow (.xml) file that automates the setup of the z/OS environment for the Java application and dependent region.  The workflow creates the PROCLIB dataset members, the JMP startup procedure, the transaction, the program, and starts all of these resources.
@@ -48,7 +49,6 @@ Sample application code is available in the src/main/java directory.
 The following configuration steps might require the assistance of a system programmer.
 
 1. The IMS Universal drivers (`imsudb.jar` and `imsutm.jar`) provided through the Java On Demand Feature FMID must be installed during the SMP/E process.
-  * The two jars included in the project are for version 14 of IMS.
 2. The location for the Java Virtual Machine (JVM) and the IMS Java native code (`libT2DLI.so`) must be specified by using either the `//STDENV DD` statement in a JCL to set Java environment variables and options, or by specifying the settings in the DFSJVMEV member of the IMS PROCLIB data set to specify the settings. 
 For more information, see [DFSJVMEV (JVM environment settings member)](https://www.ibm.com/support/knowledgecenter/en/SSEPH2_14.1.0/com.ibm.ims14.doc.sdg/ims_dfsjvmev_proclib.htm) in IBM Knowledge Center.
 3. The location of the .jar files for the IMS Universal drivers and the Java applications must be specified by setting Java environment variables and options in a `//STDENV DD` statement or by modifying the DFSJVMMS member in the IMS PROCLIB data set. 
