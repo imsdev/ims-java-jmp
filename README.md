@@ -72,6 +72,8 @@ Note that for items #2 and #3, the sample z/OSMF workflow can be tailored to han
 5. Modify the IMS Connect API for Java client application with the correct connection info to access IMS.
 6. Compile the client application.
 7. Compile the sample Java application.
+    * Right-click the pom.xml file in the project and select Run As -> Maven install
+    * The application jar file will be compiled to the "target" folder of the project. 
 8. Export the application .jar file and upload it to the USS file system in binary mode.
 9. Work with the system programmer to ensure that the program, the transaction, and the JMP region are started.
 10. Test the JMP program with the client application. 
