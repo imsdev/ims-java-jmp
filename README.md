@@ -1,6 +1,6 @@
 # Sample IMS Java message processing (JMP) application
 
-The sample Java applications run in the IMS Java Message Processing (JMP) region and demonstrates how to code the input messages that are required to trigger an IMS transaction in Java.  The samples also show how to define and send the output message. 
+The sample Java™ applications run in the IMS™ Java Message Processing (JMP) region and demonstrates how to code the input messages that are required to trigger an IMS transaction in Java.  The samples also show how to define and send the output message. 
 
 After the application is deployed to the IMS environment, a sample client application is provided that sends the input message to the transaction and displays the output message.
 
@@ -55,13 +55,17 @@ For more information, see [DFSJVMEV (JVM environment settings member)](https://w
 For more information, see [DFSJVMMS member of the IMS PROCLIB data set](https://www.ibm.com/support/knowledgecenter/en/SSEPH2_14.1.0/com.ibm.ims14.doc.sdg/ims_dfsjvmms_proclib.htm) in IBM Knowledge Center.
 
 
-Note that for items #2 and #3, the sample z/OSMF workflow can be tailored to handle these tasks, easing the process of environment setup as well as application deployment. 
+For items #2 and #3 above, the sample z/OSMF workflow can be tailored to handle these tasks, easing the process of environment setup as well as application deployment. 
+
+<b>Note</b>: Start with the version in the `insurancenodb/` directory as it does not require additional database infrastructure setup.  To use the database version of the sample in the `insurance/` directory, there are additional requirements to set up the infrastructure needed for open access to IMS database and to set up the sample IMS insurance database. 
+The details are provided in the [Implementing open access for Java applications](https://www.ibm.com/support/knowledgecenter/SSEPH2_14.1.0/com.ibm.ims14.doc.sk/ims_openacc_getstart.htm) topic in the <b>IMS open acess solution adoption kit</b> in IBM Knowledge Center.
+
 
 ## Steps
 
 1. Import the IMS Universal drivers (imsudb.jar) into your project. 
 2. Ask your system programmer to set up the environment for running Java applications in the JMP region. 
-3. Identify the z/OS UNIX System Services (USS) file system location where the application .jar file should be uploaded. The file system location is defined either in the DFSJVMMS member or in the shell script that is referenced by the `//STDENV DD` statement. Obtain the permission to upload files to the identified location. 
+3. Identify the z/OS® UNIX System Services (USS) file system location where the application .jar file should be uploaded. The file system location is defined either in the DFSJVMMS member or in the shell script that is referenced by the `//STDENV DD` statement. Obtain the permission to upload files to the identified location. 
 4. Obtain from your system programmer and system administrator the following information that is required to access IMS for testing:
    * IP address or host name
    * Data store name
@@ -81,4 +85,5 @@ Note that for items #2 and #3, the sample z/OSMF workflow can be tailored to han
 
 ## More information
 
-A similar sample that actually queries an IMS database is available in the Java in IMS solution adoption kit, as described in details in <a href="https://www.ibm.com/support/knowledgecenter/en/SSEPH2_14.1.0/com.ibm.ims14.doc.sk/ims_apmdovr.htm" target="_blank">IBM Knowledge Center</a>.  This database version of Java sample works in similar ways except the `CustomerService.java` file issues SQL queries to a sample database. You can find more information about the sample Java code and the sample code to set up the Java environment in the solution adoption kit's <a href="https://www.ibm.com/support/knowledgecenter/en/SSEPH2_14.1.0/com.ibm.ims14.doc.sk/ims_apmd_samplesovr.htm" target="_blank">Samples overview</a> section.  
+A Java sample based on the database version that queries an IMS database is available in the [Java in IMS solution adoption kit](https://www.ibm.com/support/knowledgecenter/en/SSEPH2_14.1.0/com.ibm.ims14.doc.sk/ims_apmdovr.htm) in IBM Knowledge Center. 
+The solution adoption kit is a set of learning resources such as articles, videos, blog posts, and sample code that helps you and your team through your application modernization journey. 
