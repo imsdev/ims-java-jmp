@@ -1,10 +1,10 @@
 # Sample IMS Java message processing (JMP) application
 
-The sample Java™ applications run in the IMS™ Java Message Processing (JMP) region and demonstrates how to code the input messages that are required to trigger an IMS transaction in Java.  The samples also show how to define and send the output message. 
+The sample Java™ applications run in the IMS™ Java Message Processing (JMP) region and demonstrates how to write a Java application that runs as an IMS transaction. 
 
 After the application is deployed to the IMS environment, a sample client application is provided that sends the input message to the transaction and displays the output message.
 
-Two copies of the sample are provided. The version in the `insurance/` directory requires a sample database, so additional setup steps are required. The version in the `insurancenodb/` directory does not require a database, and has customer data hard-coded in the sample.
+Two copies of the sample are provided. The version in the `insurance/` directory also demonstrates how to issue SQL queries to an IMS database. The version in the `insurancenodb/` directory does not require a database, and has customer data hard-coded in the sample.
 
 ## Scenario
 A user wants to retrieve the insurance policies information for a specified customer number. The JMP application will retrieve insurance policies information based on the customer number that is specified by the client application. 
@@ -14,20 +14,18 @@ For both versions of the sample, the files in the `src/` directory has the follo
 
 * `main/`
   * `java/`: The sample Java application. See the Sample overview section for more information.
-  * `resources/`: Contains .jar files for APIs that are used in this sample, including:
-     * IMS Connect API for Java: Used by the client application to access IMS Connect.
-     * IMS universal drivers: Used by the JMP application for making DL/I calls.
-       * The two jars included in the project are for version 14 of IMS.
+  * `resources/`: Contains IMS universal drivers .jar file for API calls that are used in this sample. 
+       * The .jar file included in the project is for version 14 of IMS.
 * `test/`
   * `java/client/`: The client application that specifies the customer number for whom to retrieve insurance policies information. The client application uses the IMS Connect API to connect to IMS. 
-  * `resources/workflow/`: A z/OSMF workflow (.xml) file that automates the setup of the z/OS environment for the Java application and dependent region.  The workflow creates the PROCLIB dataset members, the JMP startup procedure, the transaction, the program, and starts all of these resources.
-
+  * `resources/`: IMS Connect API for Java .jar file, used by the client application to access IMS Connect.
+  *
 ## Program flow / Architecture
 ![flowdiagram](./media/javainims.jpg)
 
 
 ## Samples overview
-Sample application code is available in the src/main/java directory.
+Sample application code is available in the `src/main/java` directory.
 
 * `controller/`: The main Java application
 * `customer/info`: 
@@ -44,46 +42,49 @@ Sample application code is available in the src/main/java directory.
   * `AutoPolicy.java`: Provides methods for retrieving auto insurance policy information
   * `HousePolicy.java`: Provides methods for retrieving house insurance policy information
 
-  
-## Pre-requisites
-The following configuration steps might require the assistance of a system programmer.
 
-1. The IMS Universal drivers (`imsudb.jar` and `imsutm.jar`) provided through the Java On Demand Feature FMID must be installed during the SMP/E process.
-2. The location for the Java Virtual Machine (JVM) and the IMS Java native code (`libT2DLI.so`) must be specified by using either the `//STDENV DD` statement in a JCL to set Java environment variables and options, or by specifying the settings in the DFSJVMEV member of the IMS PROCLIB data set to specify the settings. 
-For more information, see [DFSJVMEV (JVM environment settings member)](https://www.ibm.com/support/knowledgecenter/en/SSEPH2_14.1.0/com.ibm.ims14.doc.sdg/ims_dfsjvmev_proclib.htm) in IBM Knowledge Center.
-3. The location of the .jar files for the IMS Universal drivers and the Java applications must be specified by setting Java environment variables and options in a `//STDENV DD` statement or by modifying the DFSJVMMS member in the IMS PROCLIB data set. 
-For more information, see [DFSJVMMS member of the IMS PROCLIB data set](https://www.ibm.com/support/knowledgecenter/en/SSEPH2_14.1.0/com.ibm.ims14.doc.sdg/ims_dfsjvmms_proclib.htm) in IBM Knowledge Center.
+## Steps to using the samples
 
+### Downloading the samples from this GitHub repository
+On this GitHub repository page, click the <b>Clone or download</b> button and click <b>Download ZIP</b> to download the entire project. 
 
-For items #2 and #3 above, the sample z/OSMF workflow can be tailored to handle these tasks, easing the process of environment setup as well as application deployment. 
+![downloadorclone](./media/downloadclone.jpg)
 
-<b>Note</b>: Start with the version in the `insurancenodb/` directory as it does not require additional database infrastructure setup.  To use the database version of the sample in the `insurance/` directory, there are additional requirements to set up the infrastructure needed for open access to IMS database and to set up the sample IMS insurance database. 
-The details are provided in the [Implementing open access for Java applications](https://www.ibm.com/support/knowledgecenter/SSEPH2_14.1.0/com.ibm.ims14.doc.sk/ims_openacc_getstart.htm) topic in the <b>IMS open acess solution adoption kit</b> in IBM Knowledge Center.
+You can also copy the URL of this repository, then in your Eclipse integrated development environment (IDE), go to the <b>Git Repositories</b> view, click the <b>Clone a Git repository</b> hyperlink.
 
+![clonerepo](./media/clonerepo.jpg)
 
-## Steps
+The Git repository URL should be automatically filled in with the URL that you copied earlier.
+   
 
-1. Import the IMS Universal drivers (imsudb.jar) into your project. 
-2. Ask your system programmer to set up the environment for running Java applications in the JMP region. 
-3. Identify the z/OS® UNIX System Services (USS) file system location where the application .jar file should be uploaded. The file system location is defined either in the DFSJVMMS member or in the shell script that is referenced by the `//STDENV DD` statement. Obtain the permission to upload files to the identified location. 
-4. Obtain from your system programmer and system administrator the following information that is required to access IMS for testing:
+### Compiling, uploading, and deploying the Java application on IMS
+
+1. Compile the sample Java application. Start with the version in the `insurancenodb/` directory as it does not require additional database infrastructure setup.
+    * Right-click the `pom.xml` file in the project and select <b>Run As</b> -> <b>Maven install</b>.
+    * The application jar file will be compiled to the "target" folder of the project. 
+2. Export the application .jar file and upload it to the USS file system in binary mode.
+3. Work with your system programmer to ensure that IMS is set up to run Java applications in the JMP region.  The transaction and the JMP region must be started.  
+   See the [IMS devOps samples for Java applications](https://github.com/imsdev/ims-devops-java) repository for samples that demonstrate and assist assist your environment configuration and application deployment tasks.
+
+<b>Note</b>: To use the database version of the sample in the `insurance/` directory, there are additional requirements to set up the infrastructure needed for open access to IMS database and to set up the sample IMS insurance database. 
+The details will be provided in the <i>Open access to IMS data repository (coming soon)</i>. You can also check out the [Implementing open access for Java applications](https://www.ibm.com/support/knowledgecenter/SSEPH2_14.1.0/com.ibm.ims14.doc.sk/ims_openacc_getstart.htm) topic in the </b>Open access solution adoption kit</b> in IBM Knowledge Center. 
+The solution adoption kit is a set of learning resources such as articles, videos, blog posts, and sample code that helps you and your team through your application modernization journey.
+
+### Testing the Java application
+Modify the client applicaiton in `test/java/client/` to call the Java application on IMS.
+
+1. Obtain from your system programmer or system administrator the following information that is required to access IMS for testing:
    * IP address or host name
    * Data store name
    * Port number
    * IMS Connect port number
    * RACF ID
    * RACF group name
-5. Modify the IMS Connect API for Java client application with the correct connection info to access IMS.
+5. Modify the client application in with the correct connection info to access IMS.
 6. Compile the client application.
-7. Compile the sample Java application.
-    * Right-click the pom.xml file in the project and select Run As -> Maven install
-    * The application jar file will be compiled to the "target" folder of the project. 
-8. Export the application .jar file and upload it to the USS file system in binary mode.
-9. Work with the system programmer to ensure that the program, the transaction, and the JMP region are started.
-10. Test the JMP program with the client application. 
+7. Run the client application.
 
 
 ## More information
-
 A Java sample based on the database version that queries an IMS database is available in the [Java in IMS solution adoption kit](https://www.ibm.com/support/knowledgecenter/en/SSEPH2_14.1.0/com.ibm.ims14.doc.sk/ims_apmdovr.htm) in IBM Knowledge Center. 
 The solution adoption kit is a set of learning resources such as articles, videos, blog posts, and sample code that helps you and your team through your application modernization journey. 
