@@ -22,11 +22,11 @@
 		</dependency>
 		<dependency>
 			<groupId>com.ibm.ims.connect</groupId>
-			<artifactId>ImsESConnectAPIJavaV3r1Fix5Interim2</artifactId>
+			<artifactId>ImsESConnectAPIJavaV3R2Fix1</artifactId>
 			<version>1.0.0</version>
 			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/ImsESConnectAPIJavaV3r1Fix5Interim2.jar</systemPath>
-		</dependency>
+			<systemPath>${project.basedir}/src/test/resources/ImsESConnectAPIJavaV3R2Fix1.jar</systemPath>
+		</dependency>		
 	</dependencies>
 	<version>1</version>
 </project>
