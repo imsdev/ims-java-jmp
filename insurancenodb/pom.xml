@@ -7,13 +7,6 @@
 	<description>Java In IMS Adoption Kit Sample</description>
 	<dependencies>
 		<dependency>
-			<groupId>com.ibm.ims.dli</groupId>
-			<artifactId>imsutm</artifactId>
-			<version>14032</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/imsutm.jar</systemPath>
-		</dependency>
-		<dependency>
 			<groupId>com.ibm.ims.jdbc</groupId>
 			<artifactId>imsudb</artifactId>
 			<version>14032</version>
