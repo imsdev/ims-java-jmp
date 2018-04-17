@@ -34,18 +34,6 @@ public class Client {
 		//CUSTNO
 		client.appendInt(3);
 
-		//CUST_STREET
-		client.appendString("Rustic Place", 25);
-
-		//CUST_CITY
-		client.appendString("Palo Alto", 13);
-
-		//CUST_STATE
-		client.appendString("CA", 2);
-
-		//CUST_ZIPCODE
-		client.appendString("95002", 5);
-
 		client.invoke();
 
 	}
