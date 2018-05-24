@@ -14,8 +14,7 @@ For both versions of the sample, the files in the `src/` directory has the follo
 
 * `main/`
   * `java/`: The sample Java application. See the Sample overview section for more information.
-  * `resources/`: Contains IMS universal drivers .jar file for API calls that are used in this sample. 
-       * The .jar file included in the project is for version 14 of IMS.
+  * `resources/`: Download the Universal Drivers JDBC driver from [IMS Resources](https://www.ibm.com/it-infrastructure/z/ims/resources)  and add to the resources folder.
 * `test/`
   * `java/client/`: The client application that specifies the customer number for whom to retrieve insurance policies information. The client application uses the IMS Connect API to connect to IMS. 
   * `resources/`: IMS Connect API for Java .jar file, used by the client application to access IMS Connect.
