@@ -18,7 +18,7 @@ For both versions of the sample, the files in the `src/` directory has the follo
 * `test/`
   * `java/client/`: The client application that specifies the customer number for whom to retrieve insurance policies information. The client application uses the IMS Connect API to connect to IMS. 
   * `resources/`: IMS Connect API for Java .jar file, used by the client application to access IMS Connect.
-  *
+ 
 ## Program flow / Architecture
 ![flowdiagram](./media/javainims.jpg)
 
