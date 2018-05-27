@@ -63,14 +63,14 @@ The Git repository URL should be automatically filled in with the URL that you c
     * The application jar file will be compiled to the "target" folder of the project. 
 2. Export the application .jar file and upload it to the USS file system in binary mode.
 3. Work with your system programmer to ensure that IMS is set up to run Java applications in the JMP region.  The transaction and the JMP region must be started.  
-   See the [IMS devOps samples for Java applications](https://github.com/imsdev/ims-devops-java) repository for samples that demonstrate and assist assist your environment configuration and application deployment tasks.
+   See the [IMS devOps samples for Java applications](https://github.com/imsdev/ims-devops-java) repository for samples that demonstrate and assist your environment configuration and application deployment tasks.
 
-<b>Note</b>: To use the database version of the sample in the `insurance/` directory, there are additional requirements to set up the infrastructure needed for open access to IMS database and to set up the sample IMS insurance database. 
+**Note**: To use the database version of the sample in the `insurance/` directory, there are additional requirements to set up the infrastructure needed for open access to IMS database and to set up the sample IMS insurance database. 
 The details will be provided in the <i>Open access to IMS data repository (coming soon)</i>. You can also check out the [Implementing open access for Java applications](https://www.ibm.com/support/knowledgecenter/SSEPH2_14.1.0/com.ibm.ims14.doc.sk/ims_openacc_getstart.htm) topic in the </b>Open access solution adoption kit</b> in IBM Knowledge Center. 
 The solution adoption kit is a set of learning resources such as articles, videos, blog posts, and sample code that helps you and your team through your application modernization journey.
 
 ### Testing the Java application
-Modify the client applicaiton in `test/java/client/` to call the Java application on IMS.
+Modify the client application in `test/java/client/` to call the Java application on IMS.
 
 1. Obtain from your system programmer or system administrator the following information that is required to access IMS for testing:
    * IP address or host name
