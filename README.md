@@ -14,12 +14,11 @@ For both versions of the sample, the files in the `src/` directory has the follo
 
 * `main/`
   * `java/`: The sample Java application. See the Sample overview section for more information.
-  * `resources/`: Contains IMS universal drivers .jar file for API calls that are used in this sample. 
-       * The .jar file included in the project is for version 14 of IMS.
+  * `resources/`: Download the Universal Drivers JDBC driver from [IMS Resources](https://www.ibm.com/it-infrastructure/z/ims/resources)  and add to the resources folder.
 * `test/`
   * `java/client/`: The client application that specifies the customer number for whom to retrieve insurance policies information. The client application uses the IMS Connect API to connect to IMS. 
   * `resources/`: IMS Connect API for Java .jar file, used by the client application to access IMS Connect.
-  *
+ 
 ## Program flow / Architecture
 ![flowdiagram](./media/javainims.jpg)
 
@@ -46,11 +45,11 @@ Sample application code is available in the `src/main/java` directory.
 ## Steps to using the samples
 
 ### Downloading the samples from this GitHub repository
-On this GitHub repository page, click the <b>Clone or download</b> button and click <b>Download ZIP</b> to download the entire project. 
+On this GitHub repository page, click the **Clone or download** button and click **Download ZIP** to download the entire project. 
 
 ![downloadorclone](./media/downloadclone.jpg)
 
-You can also copy the URL of this repository, then in your Eclipse integrated development environment (IDE), go to the <b>Git Repositories</b> view, click the <b>Clone a Git repository</b> hyperlink.
+You can also copy the URL of this repository, then in your Eclipse integrated development environment (IDE), go to the **Git Repositories** view, click the **Clone a Git repository** hyperlink.
 
 ![clonerepo](./media/clonerepo.jpg)
 
@@ -60,18 +59,18 @@ The Git repository URL should be automatically filled in with the URL that you c
 ### Compiling, uploading, and deploying the Java application on IMS
 
 1. Compile the sample Java application. Start with the version in the `insurancenodb/` directory as it does not require additional database infrastructure setup.
-    * Right-click the `pom.xml` file in the project and select <b>Run As</b> -> <b>Maven install</b>.
+    * Right-click the `pom.xml` file in the project and select **Run As** -> **Maven install**.
     * The application jar file will be compiled to the "target" folder of the project. 
 2. Export the application .jar file and upload it to the USS file system in binary mode.
 3. Work with your system programmer to ensure that IMS is set up to run Java applications in the JMP region.  The transaction and the JMP region must be started.  
-   See the [IMS devOps samples for Java applications](https://github.com/imsdev/ims-devops-java) repository for samples that demonstrate and assist assist your environment configuration and application deployment tasks.
+   See the [IMS devOps samples for Java applications](https://github.com/imsdev/ims-devops-java) repository for samples that demonstrate and assist your environment configuration and application deployment tasks.
 
-<b>Note</b>: To use the database version of the sample in the `insurance/` directory, there are additional requirements to set up the infrastructure needed for open access to IMS database and to set up the sample IMS insurance database. 
-The details will be provided in the <i>Open access to IMS data repository (coming soon)</i>. You can also check out the [Implementing open access for Java applications](https://www.ibm.com/support/knowledgecenter/SSEPH2_14.1.0/com.ibm.ims14.doc.sk/ims_openacc_getstart.htm) topic in the </b>Open access solution adoption kit</b> in IBM Knowledge Center. 
+**Note**: To use the database version of the sample in the `insurance/` directory, there are additional requirements to set up the infrastructure needed for open access to IMS database and to set up the sample IMS insurance database. 
+The details will be provided in the <i>Open access to IMS data repository (coming soon)</i>. You can also check out the [Implementing open access for Java applications](https://www.ibm.com/support/knowledgecenter/SSEPH2_14.1.0/com.ibm.ims14.doc.sk/ims_openacc_getstart.htm) topic in the **Open access solution adoption kit** in IBM Knowledge Center. 
 The solution adoption kit is a set of learning resources such as articles, videos, blog posts, and sample code that helps you and your team through your application modernization journey.
 
 ### Testing the Java application
-Modify the client applicaiton in `test/java/client/` to call the Java application on IMS.
+Modify the client application in `test/java/client/` to call the Java application on IMS.
 
 1. Obtain from your system programmer or system administrator the following information that is required to access IMS for testing:
    * IP address or host name
@@ -87,4 +86,5 @@ Modify the client applicaiton in `test/java/client/` to call the Java applicatio
 
 ## More information
 A Java sample based on the database version that queries an IMS database is available in the [Java in IMS solution adoption kit](https://www.ibm.com/support/knowledgecenter/en/SSEPH2_14.1.0/com.ibm.ims14.doc.sk/ims_apmdovr.htm) in IBM Knowledge Center. 
+
 The solution adoption kit is a set of learning resources such as articles, videos, blog posts, and sample code that helps you and your team through your application modernization journey. 
