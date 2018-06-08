@@ -14,7 +14,7 @@ For both versions of the sample, the files in the `src/` directory has the follo
 
 * `main/`
   * `java/`: The sample Java application. See the Sample overview section for more information.
-  * `resources/`: Download the Universal Drivers JDBC driver from [IMS Resources](https://www.ibm.com/it-infrastructure/z/ims/resources)  and add to the `main/resources` folder.
+  * `resources/`: Download the Universal Drivers JDBC driver from [IMS Resources](https://www-01.ibm.com/marketing/iwm/iwm/web/download.do?source=swg-imsUD&pageType=urx&S_PKG=dlUD)  and add to the `main/resources` folder.
 * `test/`
   * `java/client/`: The client application that specifies the customer number for whom to retrieve insurance policies information. The client application uses the IMS Connect API to connect to IMS. 
   * `resources/`: Download the [IMS Connect API for Java](https://www-01.ibm.com/marketing/iwm/iwm/web/pickUrxNew.do?source=swg-imsentersuite32) JAR used by the client application to access IMS Connect.  Place the JAR in the `test/resources` folder.
