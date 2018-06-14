@@ -89,13 +89,6 @@ Modify the client application in `test/java/client/` to call the Java applicatio
 6. Compile the client application.
 7. Run the client application.
 
-## Resources
-Find the needed resources from the [IMS Resources](https://www.ibm.com/it-infrastructure/z/ims/resources)
-
-You can also obtain the Connect API for Java from the JAHF323 FMID
-
-The IMS Universal drivers (imsudb.jar) are provided through the Java On Demand Feature FMID JMK1406
-
 ## More information
 A Java sample based on the database version that queries an IMS database is available in the [Java in IMS solution adoption kit](https://www.ibm.com/support/knowledgecenter/en/SSEPH2_14.1.0/com.ibm.ims14.doc.sk/ims_apmdovr.htm) in IBM Knowledge Center. 
 
