@@ -9,16 +9,21 @@ Two copies of the sample are provided. The version in the `insurance/` directory
 ## Scenario
 A user wants to retrieve the insurance policies information for a specified customer number. The JMP application will retrieve insurance policies information based on the customer number that is specified by the client application. 
 
+## Prerequisites
+* IMS Universal JDBC driver
+  * Download from [Universal JDBC driver](https://www-01.ibm.com/marketing/iwm/iwm/web/download.do?source=swg-imsUD&pageType=urx&S_PKG=dlUD) or obtain via the IMS JAVA ON DEMAND FEATURES FMID JMK1406
+* IMS Enterprise Suite Connect API version 3.2
+  * Download from [IMS Connect API for Java](https://www-01.ibm.com/marketing/iwm/iwm/web/pickUrxNew.do?source=swg-imsentersuite32) or obtain via Connect API for Java FMID JAHF323
+ 
 ## Repository structure
 For both versions of the sample, the files in the `src/` directory has the following structure:
 
 * `main/`
   * `java/`: The sample Java application. See the Sample overview section for more information.
-  * `resources/`: Download the Universal Drivers JDBC driver from [IMS Resources](https://www-01.ibm.com/marketing/iwm/iwm/web/download.do?source=swg-imsUD&pageType=urx&S_PKG=dlUD)  and add to the `main/resources` folder.
+  * `resources/`: Add the Universal Drivers JDBC driver to the `main/resources` folder.
 * `test/`
   * `java/client/`: The client application that specifies the customer number for whom to retrieve insurance policies information. The client application uses the IMS Connect API to connect to IMS. 
-  * `resources/`: Download the [IMS Connect API for Java](https://www-01.ibm.com/marketing/iwm/iwm/web/pickUrxNew.do?source=swg-imsentersuite32) JAR used by the client application to access IMS Connect.  Place the JAR in the `test/resources` folder.
- 
+  * `resources/`: Add IMS Connect API for Java JAR to the resources folder. The JAR is used by the client application to access IMS Connect.  Place the JAR in the `test/resources` folder.
  
 ## Program flow / Architecture
 ![flowdiagram](./media/javainims.jpg)
