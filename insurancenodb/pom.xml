@@ -6,20 +6,19 @@
 	<name>JavaInIMSAdoptionKit</name>
 	<description>Java In IMS Adoption Kit Sample</description>
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/com.ibm.ims/udb -->
 		<dependency>
-			<groupId>com.ibm.ims.jdbc</groupId>
-			<artifactId>imsudb</artifactId>
-			<version>14032</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/imsudb.jar</systemPath>
+		    <groupId>com.ibm.ims</groupId>
+		    <artifactId>udb</artifactId>
+		    <version>15.1.0</version>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.ibm.ims/IMSConnectAPI -->
 		<dependency>
-			<groupId>com.ibm.ims.connect</groupId>
-			<artifactId>ImsESConnectAPIJavaV3R2Fix1</artifactId>
-			<version>1.0.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/test/resources/ImsESConnectAPIJavaV3R2Fix1.jar</systemPath>
-		</dependency>		
+		    <groupId>com.ibm.ims</groupId>
+		    <artifactId>IMSConnectAPI</artifactId>
+		    <version>3.2</version>
+		</dependency>
 	</dependencies>
 	<version>1</version>
 </project>
