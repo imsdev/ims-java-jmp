@@ -69,7 +69,7 @@ The Git repository URL should be automatically filled in with the URL that you c
     * The application jar file will be compiled to the "target" folder of the project. 
 2. Export the application .jar file and upload it to the USS file system in binary mode.
 3. Work with your system programmer to ensure that IMS is set up to run Java applications in the JMP region.  The transaction and the JMP region must be started.  
-   See the [IMS devOps samples for Java applications](https://github.com/imsdev/ims-devops-java) repository for samples that demonstrate and assist your environment configuration and application deployment tasks.
+   See the [IMS DevOps samples for Java applications](https://github.com/imsdev/ims-devops-java) repository for samples that demonstrate and assist your environment configuration and application deployment tasks.
 
 **Note**: To use the database version of the sample in the `insurance/` directory, there are additional requirements to set up the infrastructure needed for open access to IMS database and to set up the sample IMS insurance database. 
 The details will be provided in the <i>Open access to IMS data repository (coming soon)</i>. You can also check out the [Implementing open access for Java applications](https://www.ibm.com/support/knowledgecenter/SSEPH2_14.1.0/com.ibm.ims14.doc.sk/ims_openacc_getstart.htm) topic in the **Open access solution adoption kit** in IBM Knowledge Center. 
